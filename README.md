@@ -1,7 +1,7 @@
 # Chatbar
 一个基于Chatgpt的便捷聊天软件，用WPF实现，需要安装.NET 7.0
 这是设置页面，比较简陋，占时不支持自定义快捷键：
-![image](https://user-images.githubusercontent.com/87798883/227957549-77272b60-5a6d-47dd-8faf-ea499fea95ef.png)
+![image](https://user-images.githubusercontent.com/87798883/227963023-37608649-9d7d-4928-abb7-8a84c0c3e2d3.png)
 apikey填入你自己的apikey，apibase是转接的openai网址
 按住ALT+Q就会出现一个搜索栏
 ![image](https://user-images.githubusercontent.com/87798883/227961515-3cf37b35-c308-449b-b3b0-9ceadb66793b.png)
