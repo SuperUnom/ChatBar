@@ -4,8 +4,8 @@
 ![image](https://user-images.githubusercontent.com/87798883/227957549-77272b60-5a6d-47dd-8faf-ea499fea95ef.png)
 apikey填入你自己的apikey，apibase是转接的openai网址
 按住ALT+Q就会出现一个搜索栏
-![image](https://user-images.githubusercontent.com/87798883/227958915-861d6b63-d0e8-4e2b-a951-4ebdd2727b79.png)
+![image](https://user-images.githubusercontent.com/87798883/227961515-3cf37b35-c308-449b-b3b0-9ceadb66793b.png)
 输入问题，就可以快速进行聊天
-![image](https://user-images.githubusercontent.com/87798883/227959341-3e556dcd-bdb6-415b-ac61-94569d2b1280.png)
+![image](https://user-images.githubusercontent.com/87798883/227961749-240e7d1d-ea15-4938-8c9c-d9b8f81bdee2.png)
 有历史会看记录功能
-![image](https://user-images.githubusercontent.com/87798883/227960253-e11d2564-385d-4bdf-ba60-130898a14caf.png)
+![image](https://user-images.githubusercontent.com/87798883/227962125-6c249acf-bfee-49a1-997f-1152700168e8.png)
