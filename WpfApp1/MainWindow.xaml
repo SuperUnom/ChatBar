@@ -1,0 +1,208 @@
+<Window
+    x:Class="Chatbar.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:localSV="clr-namespace:Chatbar.ScrollView"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    MinWidth="400"
+    MaxWidth="600"
+    MaxHeight="500"
+    AllowsTransparency="True"
+    Background="Transparent"
+    Loaded="Window_Loaded"
+    ResizeMode="CanMinimize"
+    SizeToContent="WidthAndHeight"
+    Topmost="True"
+    WindowStartupLocation="Manual"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <Style x:Key="Save_Border" TargetType="Border">
+            <Setter Property="Background" Value="#80808080" />
+            <Setter Property="DockPanel.Dock" Value="Left" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Margin" Value="5,2,10,2" />
+            <Setter Property="CornerRadius" Value="6" />
+            <EventSetter Event="MouseLeftButtonDown" Handler="Border_MouseLeftButtonDown" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#BF808080" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="Save_DateText" TargetType="TextBlock">
+            <Setter Property="ContextMenu" Value="{x:Null}" />
+            <Setter Property="Width" Value="Auto" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Margin" Value="12,5,15,5" />
+            <Setter Property="FontSize" Value="10" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Foreground" Value="Black" />
+        </Style>
+        <Style x:Key="Save_ContentText" TargetType="TextBlock">
+            <Setter Property="ContextMenu" Value="{x:Null}" />
+            <Setter Property="Width" Value="Auto" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Margin" Value="12,5,15,5" />
+            <Setter Property="FontSize" Value="10" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Foreground" Value="Black" />
+        </Style>
+        <Style x:Key="s1" TargetType="Border">
+            <Setter Property="Background" Value="#EFADD8E6" />
+            <Setter Property="DockPanel.Dock" Value="Left" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Margin" Value="5,5,10,5" />
+            <Setter Property="CornerRadius" Value="7" />
+        </Style>
+        <Style x:Key="s2" TargetType="Border">
+            <Setter Property="Background" Value="#EF82C6F6" />
+            <Setter Property="DockPanel.Dock" Value="Right" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Margin" Value="5,5,10,5" />
+            <Setter Property="CornerRadius" Value="7" />
+            <Setter Property="MaxWidth" Value="300" />
+        </Style>
+        <Style x:Key="s3" TargetType="TextBox">
+            <Setter Property="ContextMenu" Value="{x:Null}" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="IsReadOnly" Value="True" />
+            <Setter Property="Width" Value="Auto" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Margin" Value="15,10,15,10" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Foreground" Value="Black" />
+        </Style>
+        <Style TargetType="DockPanel">
+            <Setter Property="LastChildFill" Value="False" />
+        </Style>
+    </Window.Resources>
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="400" />
+        </Grid.ColumnDefinitions>
+
+
+        <Border
+            x:Name="Save_Border"
+            Grid.Column="0"
+            Width="200"
+            Background="Transparent"
+            CornerRadius="7"
+            Visibility="Hidden">
+            <localSV:ZScrollViewer>
+                <StackPanel x:Name="Save_StackPanel" />
+            </localSV:ZScrollViewer>
+        </Border>
+
+
+        <Border
+            x:Name="MyBorder"
+            Grid.Column="1"
+            Background="#01802080"
+            BorderBrush="Transparent"
+            BorderThickness="1"
+            CornerRadius="7">
+            <localSV:ZScrollViewer HorizontalScrollBarVisibility="Disabled" ScrollChanged="ZScrollViewer_ScrollChanged">
+
+                <Grid VerticalAlignment="Bottom">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Border
+                        Grid.Row="0"
+                        Width="200"
+                        Height="10"
+                        Margin="5,5,0,5"
+                        HorizontalAlignment="Center"
+                        Background="#ff808080"
+                        CornerRadius="4"
+                        MouseLeftButtonDown="Move_MouseLeftButtonDown" />
+                    <Image
+                        Grid.Row="0"
+                        Width="17"
+                        Height="17"
+                        Margin="5,0,0,0"
+                        HorizontalAlignment="Left"
+                        MouseLeftButtonDown="History_click"
+                        Source="/history.png" />
+                    <Image
+                        Grid.Row="0"
+                        Width="23"
+                        Height="23"
+                        Margin="0,0,5,0"
+                        HorizontalAlignment="Right"
+                        MouseLeftButtonDown="Close_click"
+                        Source="/close.png" />
+                    <Image
+                        Grid.Row="0"
+                        Width="23"
+                        Height="16"
+                        Margin="0,0,35,0"
+                        HorizontalAlignment="Right"
+                        MouseLeftButtonDown="Refresh_click"
+                        Source="/refresh.png" />
+
+                    <StackPanel
+                        x:Name="MyStackPanel"
+                        Grid.Row="1"
+                        VerticalAlignment="Bottom" />
+                    <Border
+                        Grid.Row="2"
+                        Margin="5,5,10,0"
+                        Background="#303030"
+                        BorderBrush="#A0A0A0"
+                        BorderThickness="1"
+                        CornerRadius="7">
+                        <Grid>
+                            <TextBlock
+                                x:Name="PlaceHolder"
+                                Margin="10"
+                                VerticalAlignment="Center"
+                                Background="Transparent"
+                                FontSize="15"
+                                FontStyle="Italic"
+                                Foreground="#FF505050"
+                                IsHitTestVisible="False"
+                                Text="Enter the words" />
+                            <TextBox
+                                x:Name="MyText"
+                                Margin="10"
+                                VerticalAlignment="Center"
+                                AcceptsReturn="True"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                CaretBrush="White"
+                                ContextMenu="{x:Null}"
+                                FontSize="15"
+                                Foreground="White"
+                                MaxLines="3"
+                                PreviewKeyDown="TextBox_KeyDown"
+                                TextChanged="Text_Change"
+                                TextWrapping="Wrap" />
+                        </Grid>
+                    </Border>
+                </Grid>
+            </localSV:ZScrollViewer>
+        </Border>
+    </Grid>
+
+
+</Window>
+

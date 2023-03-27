@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <Configurations>Debug;Release;Alpha 0.1;Alpha 0.2;alpha 0.3;Alpha 0.5</Configurations>
+    <UseWindowsForms>False</UseWindowsForms>
+    <StartupObject></StartupObject>
+    <ApplicationIcon>chatbar.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="chat.ico" />
+    <None Remove="chatbar.ico" />
+    <None Remove="close.png" />
+    <None Remove="history.png" />
+    <None Remove="refresh.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Betalgo.OpenAI.GPT3" Version="6.8.1" />
+    <PackageReference Include="dotenv.net" Version="3.1.2" />
+    <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
+    <PackageReference Include="Hardcodet.Wpf.TaskbarNotification" Version="1.0.5" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="WpfMath" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="close.png" />
+    <Content Include="chatbar.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="history.png" />
+    <Resource Include="refresh.png" />
+  </ItemGroup>
+
+</Project>
